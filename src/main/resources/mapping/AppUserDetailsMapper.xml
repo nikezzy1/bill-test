@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lingsi.unp.mapper.user.AppUserDetailsMapper">
+  <resultMap id="BaseResultMap" type="com.lingsi.unp.model.user.AppUserDetails">
+    <id column="userId" jdbcType="VARCHAR" property="userId" />
+    <result column="userName" jdbcType="VARCHAR" property="userName" />
+    <result column="idCardNo" jdbcType="VARCHAR" property="idCardNo" />
+    <result column="companyName" jdbcType="VARCHAR" property="companyName" />
+    <result column="companyLicenseNo" jdbcType="VARCHAR" property="companyLicenseNo" />
+    <result column="inputUserId" jdbcType="VARCHAR" property="inputUserId" />
+    <result column="inputTime" jdbcType="VARCHAR" property="inputTime" />
+    <result column="telephone" jdbcType="VARCHAR" property="telephone" />
+    <result column="grantedCode" jdbcType="VARCHAR" property="grantedCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    userId, userName, idCardNo,telephone, companyName, companyLicenseNo, inputUserId, inputTime, grantedCode
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from app_user_details
+    where userId = #{userId,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByPhone" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from app_user_details
+    where telephone = #{telephone,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByVerifyInfo" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from app_user_details
+    where userName = #{userName,jdbcType=VARCHAR}
+    and idCardNo= #{idCardNo,jdbcType=VARCHAR}
+    and companyName= #{companyName,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from app_user_details
+    where userId = #{userId,jdbcType=VARCHAR}
+  </delete>
+
+  <insert id="insert" parameterType="com.lingsi.unp.model.user.AppUserDetails">
+    insert into app_user_details (userId, userName, idCardNo, 
+      companyName, companyLicenseNo, inputUserId, 
+      inputTime,telephone,grantedCode)
+    values (#{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{idCardNo,jdbcType=VARCHAR}, 
+      #{companyName,jdbcType=VARCHAR}, #{companyLicenseNo,jdbcType=VARCHAR}, #{inputUserId,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR}, #{grantedCode,jdbcType=VARCHAR} )
+  </insert>
+
+  <insert id="insertSelective" parameterType="com.lingsi.unp.model.user.AppUserDetails">
+    insert into app_user_details
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        userId,
+      </if>
+      <if test="userName != null">
+        userName,
+      </if>
+      <if test="idCardNo != null">
+        idCardNo,
+      </if>
+      <if test="companyName != null">
+        companyName,
+      </if>
+      <if test="companyLicenseNo != null">
+        companyLicenseNo,
+      </if>
+      <if test="inputUserId != null">
+        inputUserId,
+      </if>
+      <if test="inputTime != null">
+        inputTime,
+      </if>
+      <if test="telephone != null">
+        telephone,
+      </if>
+      <if test="grantedCode != null">
+        grantedCode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardNo != null">
+        #{idCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyLicenseNo != null">
+        #{companyLicenseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="inputUserId != null">
+        #{inputUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="grantedCode != null">
+        #{grantedCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lingsi.unp.model.user.AppUserDetails">
+    update app_user_details
+    <set>
+      <if test="userName != null">
+        userName = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardNo != null">
+        idCardNo = #{idCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null">
+        companyName = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyLicenseNo != null">
+        companyLicenseNo = #{companyLicenseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="inputUserId != null">
+        inputUserId = #{inputUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null">
+        inputTime = #{inputTime,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="grantedCode != null">
+        grantedCode = #{grantedCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where userId = #{userId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lingsi.unp.model.user.AppUserDetails">
+    update app_user_details
+    set userName = #{userName,jdbcType=VARCHAR},
+      idCardNo = #{idCardNo,jdbcType=VARCHAR},
+      companyName = #{companyName,jdbcType=VARCHAR},
+      companyLicenseNo = #{companyLicenseNo,jdbcType=VARCHAR},
+      inputUserId = #{inputUserId,jdbcType=VARCHAR},
+      inputTime = #{inputTime,jdbcType=VARCHAR},
+      telephone = #{telephone,jdbcType=VARCHAR},
+      grantedCode = #{grantedCode,jdbcType=VARCHAR}
+    where userId = #{userId,jdbcType=VARCHAR}
+  </update>
+
+
+
+
+
+
+
+
+  <select id="selectBySelective" resultMap="BaseResultMap" parameterType="java.util.Map">
+    select
+    <include refid="Base_Column_List"/>
+    from app_user_details
+    <where>
+      <trim suffixOverrides="and">
+        <if test="companyLicenseNo != null">
+          companyLicenseNo = #{companyLicenseNo}
+        </if>
+      </trim>
+    </where>
+  </select>
+</mapper>

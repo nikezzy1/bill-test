@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lingsi.unp.mapper.cases.CaseApplyMapper">
+  <resultMap id="BaseResultMap" type="com.lingsi.unp.model.cases.CaseApply">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="applySerialNo" jdbcType="VARCHAR" property="applySerialNo" />
+    <result column="caseType" jdbcType="VARCHAR" property="caseType" />
+    <result column="caseDispute" jdbcType="VARCHAR" property="caseDispute" />
+    <result column="caseContent" jdbcType="VARCHAR" property="caseContent" />
+    <result column="personIdInvolved" jdbcType="VARCHAR" property="personIdInvolved" />
+    <result column="involvedAddress" jdbcType="VARCHAR" property="involvedAddress" />
+    <result column="businessType" jdbcType="VARCHAR" property="businessType" />
+    <result column="respondent" jdbcType="VARCHAR" property="respondent" />
+    <result column="respondentId" jdbcType="VARCHAR" property="respondentId" />
+    <result column="respondentDataId" jdbcType="VARCHAR" property="respondentDataId" />
+    <result column="respondentData" jdbcType="VARCHAR" property="respondentData" />
+    <result column="notaryId" jdbcType="VARCHAR" property="notaryId" />
+    <result column="notaryName" jdbcType="VARCHAR" property="notaryName" />
+    <result column="assistNotaryId" jdbcType="VARCHAR" property="assistNotaryId" />
+    <result column="assistNotaryName" jdbcType="VARCHAR" property="assistNotaryName" />
+    <result column="assistInvolvedName" jdbcType="VARCHAR" property="assistInvolvedName" />
+    <result column="assistInvolvedIdCardNo" jdbcType="VARCHAR" property="assistInvolvedIdCardNo" />
+    <result column="forensicStartTime" jdbcType="VARCHAR" property="forensicStartTime" />
+    <result column="forensicEndTime" jdbcType="VARCHAR" property="forensicEndTime" />
+    <result column="receiverId" jdbcType="VARCHAR" property="receiverId" />
+    <result column="receiverName" jdbcType="VARCHAR" property="receiverName" />
+    <result column="applyTime" jdbcType="VARCHAR" property="applyTime" />
+    <result column="applyDate" jdbcType="VARCHAR" property="applyDate" />
+    <result column="caseStatus" jdbcType="VARCHAR" property="caseStatus" />
+    <result column="cspStatus" jdbcType="VARCHAR" property="cspStatus" />
+    <result column="notarialPaperSerialNo" jdbcType="VARCHAR" property="notarialPaperSerialNo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, applySerialNo, caseType, caseDispute, caseContent, personIdInvolved, involvedAddress, 
+    businessType, respondent, respondentId, respondentDataId, respondentData, notaryId, 
+    notaryName, assistNotaryId, assistNotaryName, assistInvolvedName, assistInvolvedIdCardNo, 
+    forensicStartTime, forensicEndTime, receiverId, receiverName, applyTime, applyDate, 
+    caseStatus, cspStatus, notarialPaperSerialNo
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from case_apply
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from case_apply
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lingsi.unp.model.cases.CaseApply">
+    insert into case_apply (id, applySerialNo, caseType, 
+      caseDispute, caseContent, personIdInvolved, 
+      involvedAddress, businessType, respondent, 
+      respondentId, respondentDataId, respondentData, 
+      notaryId, notaryName, assistNotaryId, 
+      assistNotaryName, assistInvolvedName, assistInvolvedIdCardNo, 
+      forensicStartTime, forensicEndTime, receiverId, 
+      receiverName, applyTime, applyDate, 
+      caseStatus, cspStatus, notarialPaperSerialNo
+      )
+    values (#{id,jdbcType=BIGINT}, #{applySerialNo,jdbcType=VARCHAR}, #{caseType,jdbcType=VARCHAR}, 
+      #{caseDispute,jdbcType=VARCHAR}, #{caseContent,jdbcType=VARCHAR}, #{personIdInvolved,jdbcType=VARCHAR}, 
+      #{involvedAddress,jdbcType=VARCHAR}, #{businessType,jdbcType=VARCHAR}, #{respondent,jdbcType=VARCHAR}, 
+      #{respondentId,jdbcType=VARCHAR}, #{respondentDataId,jdbcType=VARCHAR}, #{respondentData,jdbcType=VARCHAR}, 
+      #{notaryId,jdbcType=VARCHAR}, #{notaryName,jdbcType=VARCHAR}, #{assistNotaryId,jdbcType=VARCHAR}, 
+      #{assistNotaryName,jdbcType=VARCHAR}, #{assistInvolvedName,jdbcType=VARCHAR}, #{assistInvolvedIdCardNo,jdbcType=VARCHAR}, 
+      #{forensicStartTime,jdbcType=VARCHAR}, #{forensicEndTime,jdbcType=VARCHAR}, #{receiverId,jdbcType=VARCHAR}, 
+      #{receiverName,jdbcType=VARCHAR}, #{applyTime,jdbcType=VARCHAR}, #{applyDate,jdbcType=VARCHAR}, 
+      #{caseStatus,jdbcType=VARCHAR}, #{cspStatus,jdbcType=VARCHAR}, #{notarialPaperSerialNo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lingsi.unp.model.cases.CaseApply">
+    insert into case_apply
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="applySerialNo != null">
+        applySerialNo,
+      </if>
+      <if test="caseType != null">
+        caseType,
+      </if>
+      <if test="caseDispute != null">
+        caseDispute,
+      </if>
+      <if test="caseContent != null">
+        caseContent,
+      </if>
+      <if test="personIdInvolved != null">
+        personIdInvolved,
+      </if>
+      <if test="involvedAddress != null">
+        involvedAddress,
+      </if>
+      <if test="businessType != null">
+        businessType,
+      </if>
+      <if test="respondent != null">
+        respondent,
+      </if>
+      <if test="respondentId != null">
+        respondentId,
+      </if>
+      <if test="respondentDataId != null">
+        respondentDataId,
+      </if>
+      <if test="respondentData != null">
+        respondentData,
+      </if>
+      <if test="notaryId != null">
+        notaryId,
+      </if>
+      <if test="notaryName != null">
+        notaryName,
+      </if>
+      <if test="assistNotaryId != null">
+        assistNotaryId,
+      </if>
+      <if test="assistNotaryName != null">
+        assistNotaryName,
+      </if>
+      <if test="assistInvolvedName != null">
+        assistInvolvedName,
+      </if>
+      <if test="assistInvolvedIdCardNo != null">
+        assistInvolvedIdCardNo,
+      </if>
+      <if test="forensicStartTime != null">
+        forensicStartTime,
+      </if>
+      <if test="forensicEndTime != null">
+        forensicEndTime,
+      </if>
+      <if test="receiverId != null">
+        receiverId,
+      </if>
+      <if test="receiverName != null">
+        receiverName,
+      </if>
+      <if test="applyTime != null">
+        applyTime,
+      </if>
+      <if test="applyDate != null">
+        applyDate,
+      </if>
+      <if test="caseStatus != null">
+        caseStatus,
+      </if>
+      <if test="cspStatus != null">
+        cspStatus,
+      </if>
+      <if test="notarialPaperSerialNo != null">
+        notarialPaperSerialNo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="applySerialNo != null">
+        #{applySerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="caseType != null">
+        #{caseType,jdbcType=VARCHAR},
+      </if>
+      <if test="caseDispute != null">
+        #{caseDispute,jdbcType=VARCHAR},
+      </if>
+      <if test="caseContent != null">
+        #{caseContent,jdbcType=VARCHAR},
+      </if>
+      <if test="personIdInvolved != null">
+        #{personIdInvolved,jdbcType=VARCHAR},
+      </if>
+      <if test="involvedAddress != null">
+        #{involvedAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null">
+        #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="respondent != null">
+        #{respondent,jdbcType=VARCHAR},
+      </if>
+      <if test="respondentId != null">
+        #{respondentId,jdbcType=VARCHAR},
+      </if>
+      <if test="respondentDataId != null">
+        #{respondentDataId,jdbcType=VARCHAR},
+      </if>
+      <if test="respondentData != null">
+        #{respondentData,jdbcType=VARCHAR},
+      </if>
+      <if test="notaryId != null">
+        #{notaryId,jdbcType=VARCHAR},
+      </if>
+      <if test="notaryName != null">
+        #{notaryName,jdbcType=VARCHAR},
+      </if>
+      <if test="assistNotaryId != null">
+        #{assistNotaryId,jdbcType=VARCHAR},
+      </if>
+      <if test="assistNotaryName != null">
+        #{assistNotaryName,jdbcType=VARCHAR},
+      </if>
+      <if test="assistInvolvedName != null">
+        #{assistInvolvedName,jdbcType=VARCHAR},
+      </if>
+      <if test="assistInvolvedIdCardNo != null">
+        #{assistInvolvedIdCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="forensicStartTime != null">
+        #{forensicStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="forensicEndTime != null">
+        #{forensicEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverId != null">
+        #{receiverId,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverName != null">
+        #{receiverName,jdbcType=VARCHAR},
+      </if>
+      <if test="applyTime != null">
+        #{applyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="applyDate != null">
+        #{applyDate,jdbcType=VARCHAR},
+      </if>
+      <if test="caseStatus != null">
+        #{caseStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="cspStatus != null">
+        #{cspStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="notarialPaperSerialNo != null">
+        #{notarialPaperSerialNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lingsi.unp.model.cases.CaseApply">
+    update case_apply
+    <set>
+      <if test="applySerialNo != null">
+        applySerialNo = #{applySerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="caseType != null">
+        caseType = #{caseType,jdbcType=VARCHAR},
+      </if>
+      <if test="caseDispute != null">
+        caseDispute = #{caseDispute,jdbcType=VARCHAR},
+      </if>
+      <if test="caseContent != null">
+        caseContent = #{caseContent,jdbcType=VARCHAR},
+      </if>
+      <if test="personIdInvolved != null">
+        personIdInvolved = #{personIdInvolved,jdbcType=VARCHAR},
+      </if>
+      <if test="involvedAddress != null">
+        involvedAddress = #{involvedAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null">
+        businessType = #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="respondent != null">
+        respondent = #{respondent,jdbcType=VARCHAR},
+      </if>
+      <if test="respondentId != null">
+        respondentId = #{respondentId,jdbcType=VARCHAR},
+      </if>
+      <if test="respondentDataId != null">
+        respondentDataId = #{respondentDataId,jdbcType=VARCHAR},
+      </if>
+      <if test="respondentData != null">
+        respondentData = #{respondentData,jdbcType=VARCHAR},
+      </if>
+      <if test="notaryId != null">
+        notaryId = #{notaryId,jdbcType=VARCHAR},
+      </if>
+      <if test="notaryName != null">
+        notaryName = #{notaryName,jdbcType=VARCHAR},
+      </if>
+      <if test="assistNotaryId != null">
+        assistNotaryId = #{assistNotaryId,jdbcType=VARCHAR},
+      </if>
+      <if test="assistNotaryName != null">
+        assistNotaryName = #{assistNotaryName,jdbcType=VARCHAR},
+      </if>
+      <if test="assistInvolvedName != null">
+        assistInvolvedName = #{assistInvolvedName,jdbcType=VARCHAR},
+      </if>
+      <if test="assistInvolvedIdCardNo != null">
+        assistInvolvedIdCardNo = #{assistInvolvedIdCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="forensicStartTime != null">
+        forensicStartTime = #{forensicStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="forensicEndTime != null">
+        forensicEndTime = #{forensicEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverId != null">
+        receiverId = #{receiverId,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverName != null">
+        receiverName = #{receiverName,jdbcType=VARCHAR},
+      </if>
+      <if test="applyTime != null">
+        applyTime = #{applyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="applyDate != null">
+        applyDate = #{applyDate,jdbcType=VARCHAR},
+      </if>
+      <if test="caseStatus != null">
+        caseStatus = #{caseStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="cspStatus != null">
+        cspStatus = #{cspStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="notarialPaperSerialNo != null">
+        notarialPaperSerialNo = #{notarialPaperSerialNo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lingsi.unp.model.cases.CaseApply">
+    update case_apply
+    set applySerialNo = #{applySerialNo,jdbcType=VARCHAR},
+      caseType = #{caseType,jdbcType=VARCHAR},
+      caseDispute = #{caseDispute,jdbcType=VARCHAR},
+      caseContent = #{caseContent,jdbcType=VARCHAR},
+      personIdInvolved = #{personIdInvolved,jdbcType=VARCHAR},
+      involvedAddress = #{involvedAddress,jdbcType=VARCHAR},
+      businessType = #{businessType,jdbcType=VARCHAR},
+      respondent = #{respondent,jdbcType=VARCHAR},
+      respondentId = #{respondentId,jdbcType=VARCHAR},
+      respondentDataId = #{respondentDataId,jdbcType=VARCHAR},
+      respondentData = #{respondentData,jdbcType=VARCHAR},
+      notaryId = #{notaryId,jdbcType=VARCHAR},
+      notaryName = #{notaryName,jdbcType=VARCHAR},
+      assistNotaryId = #{assistNotaryId,jdbcType=VARCHAR},
+      assistNotaryName = #{assistNotaryName,jdbcType=VARCHAR},
+      assistInvolvedName = #{assistInvolvedName,jdbcType=VARCHAR},
+      assistInvolvedIdCardNo = #{assistInvolvedIdCardNo,jdbcType=VARCHAR},
+      forensicStartTime = #{forensicStartTime,jdbcType=VARCHAR},
+      forensicEndTime = #{forensicEndTime,jdbcType=VARCHAR},
+      receiverId = #{receiverId,jdbcType=VARCHAR},
+      receiverName = #{receiverName,jdbcType=VARCHAR},
+      applyTime = #{applyTime,jdbcType=VARCHAR},
+      applyDate = #{applyDate,jdbcType=VARCHAR},
+      caseStatus = #{caseStatus,jdbcType=VARCHAR},
+      cspStatus = #{cspStatus,jdbcType=VARCHAR},
+      notarialPaperSerialNo = #{notarialPaperSerialNo,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <select id="selectBySelective" parameterType="com.lingsi.unp.service.cases.bean.CaseApplySelectiveDto" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from case_apply
+    <where>
+      1=1
+      <if test="caseStatus != null">
+          and caseStatus in
+          <foreach close=")" collection="caseStatus" index="index" item="caseStatus" open="(" separator=",">
+              #{caseStatus}
+          </foreach>
+      </if>
+    </where>
+  </select>
+
+  <select id="selectApprovedSelective" parameterType="com.lingsi.unp.service.cases.bean.CaseApprovedSelectiveDto" resultMap="BaseResultMap">
+    select
+    apply.*
+    from case_apply apply, case_approve approve
+    <where>
+      approve.caseId = apply.id
+      <!--<if test="caseStatus != null">-->
+        <!--and caseStatus in -->
+          <!--<foreach collection="caseStatus" index="index" item="caseStatus"-->
+          <!--open="(" separator="," close=")">-->
+              <!--#{caseStatus}-->
+          <!--</foreach>-->
+      <!--</if>-->
+       <if test="userId != null">
+           and approve.userId = #{userId}
+       </if>
+        <if test="roleId != null">
+            and approve.roleId = #{roleId}
+        </if>
+    </where>
+  </select>
+
+  <update id="updateByStatusSelective" parameterType="com.lingsi.unp.service.cases.bean.CaseApplyUpdateSelectiveDto">
+    update
+      case_apply
+      <set>
+          <if test="caseStatus != null">
+              caseStatus = #{caseStatus},
+          </if>
+          <if test="receiverId != null">
+              receiverId=#{receiverId},
+          </if>
+          <if test="receiverName != null">
+              receiverName=#{receiverName},
+          </if>
+          <if test="notaryId != null">
+              notaryId=#{notaryId},
+          </if>
+          <if test="notaryName != null">
+              notaryName=#{notaryName},
+          </if>
+          <if test="assistNotaryName != null">
+              assistNotaryName=#{assistNotaryName},
+          </if>
+          <if test="forensicStartTime != null">
+              forensicStartTime=#{forensicStartTime},
+          </if>
+          <if test="forensicEndTime != null">
+              forensicEndTime=#{forensicEndTime},
+          </if>
+          <if test="assistInvolvedName != null">
+              assistInvolvedName=#{assistInvolvedName},
+          </if>
+          <if test="assistInvolvedIdCardNo != null">
+              assistInvolvedIdCardNo=#{assistInvolvedIdCardNo},
+          </if>
+          <if test="cspStatus != null">
+              cspStatus = #{cspStatus}
+          </if>
+      </set>
+    <where>
+        id=#{id}
+      <if test="oldCaseStatus != null">
+          and caseStatus=#{oldCaseStatus}
+      </if>
+    </where>
+  </update>
+
+  <select id="selectByApplySerialNo" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from case_apply
+    where applySerialNo = #{applySerialNo,jdbcType=VARCHAR}
+  </select>
+</mapper>

@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>公证书模板</title>
+</head>
+<body style="font-family: '宋体';line-height: 34px;">
+	<p style="margin: 0;padding: 0;">
+	    <br/>
+	</p>
+	<p style="text-align:center;text-autospace:none;margin: 0;padding: 0;">
+	    <span style="font-size: 29px;font-family: 宋体">报 告 书</span>
+	</p>
+	<p style="line-height:28px;text-autospace:none;margin: 0;padding: 0;">
+	    <span style="font-size: 29px;font-family: 宋体">&nbsp;</span>
+	</p>
+	<p style="text-align:right;text-autospace:none;margin: 0;padding: 0;">
+	    <span style="font-size: 21px;font-family: 仿宋">（<span>{{year}}</span>）浙衢信证互字第<span>{{number}}</span>号</span>
+	</p>
+	<p style="text-align:right;line-height:28px;text-autospace:none;margin: 0;padding: 0;">
+	    <span style="font-size: 21px;font-family: 仿宋">&nbsp;</span>
+	</p>
+	<p style="text-indent: 43px;margin: 0;padding: 0;">
+	    <span style="font-size: 21px;font-family: 仿宋">申请人：{{applicant}}，《营业执照》统一社会信用代码：{{businessLicense}}，住所：{{businessAddress}}。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	</p>
+	<p style="text-indent: 43px;margin: 0;padding: 0;">
+	    <span style="font-size: 21px;font-family: 仿宋">法定代表人：{{legalPerson}}，性别：{{gender}}，公民身份号码：{{legalPersonIdCard}}，住址：{{legalPersonAddress}}。</span>
+	</p>
+	<p style="text-indent: 43px;margin: 0;padding: 0;">
+	    <span style="font-size: 21px;font-family: 仿宋">报告事项：材料核实</span>
+	</p>
+	<p style="text-indent:43px;text-autospace:none;margin: 0;padding: 0;">
+	    <span style="font-size: 21px;font-family: 仿宋">申请人{{applicant}}的法定代表人称其公司为{{bank}}就{{dispute}}向衢州仲裁委提起互联网仲裁提供技术服务，为确保{{bank}}所上传的相关证据材料的真实性，故向我处申请对上传相关证据材料的行为进行核实确认。 </span>
+	</p>
+	<p style="text-indent: 43px;margin: 0;padding: 0;">
+    	<span style="font-size: 21px;font-family: 仿宋">根据《中华人民共和国公证法》的规定，本公证员与公证员助理{{assistantManager}}、{{bank}}的工作人员{{bankStaff}}（公民身份号码：{{idCard1}}）于{{year1}}年{{month1}}月{{day1}}日，在{{address}}，由{{bankStaff}}使用我处所提供的手机拍照功能将涉及{{creditCardHolder}}（公民身份号码：{{idCard2}}）的相关证据材料进行拍照上传至本公证处（详见附件）。 </span>
+    </p>
+	<p style="text-indent:43px;text-autospace:none;margin: 0;padding: 0;">
+	    <span style="font-size: 21px;font-family: 仿宋">兹核实，{{bank}}的工作人员{{bankStaff}}现场上传的相关证据材料信息与{{bank}}留存的原件相符。 </span>
+	</p>
+	<p style="text-indent: 43px;margin: 0;padding: 0;">
+	    <span style="font-size: 21px;font-family: 仿宋">附件：1、{{attachment1}}</span>
+	</p>
+	<p style="text-indent: 107px;margin: 0;padding: 0;">
+	    <span style="font-size: 21px;font-family: 仿宋">2、{{attachment2}}</span>
+	</p>
+	<p style="text-align:center;text-autospace:none;margin: 0;padding: 0;">
+	    <span style="font-size: 21px;font-family: 仿宋">&nbsp;</span>
+	</p>
+	
+	<p style="text-align:right;text-autospace:none;margin: 0;padding: 0;">
+	    <span style="font-size: 21px;font-family: 仿宋">浙江省衢州市信安公证处 </span>
+	</p>
+	<p style="text-autospace:none;margin: 0;padding: 0;">
+	    <span style="font-size: 21px;font-family: 仿宋">&nbsp;</span>
+	</p>
+	<p style="text-align:right;text-autospace:none;position: relative;margin: 0;padding: 0;">
+	    <span style="font-size: 21px;font-family: 仿宋">公证员 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+	    <img {{NotarialPersonSignature}} style="height: 60px;position: absolute;right: 0px;top: -20px;"/>
+	</p>
+	<p style="text-align:center;text-autospace:none;margin: 0;padding: 0;">
+	    <span style="font-size: 21px;font-family: 仿宋">&nbsp;</span>
+	</p>
+	<p style="text-align:center;text-autospace:none;margin: 0;padding: 0;">
+	    <span style="font-size: 21px;font-family: 仿宋">&nbsp;</span>
+	</p>
+	<p style="text-align:right;text-autospace:none;position: relative;margin: 0;padding: 0;">
+	    <span style="font-size: 21px;font-family: 仿宋">{{year2}}年<span>{{month2}}</span>月<span>{{day2}}</span>日</span>
+	    <img {{NotarialSignature}} style="height: 156px;position: absolute;right: 24px;top: -45px;"/>
+	</p>
+	<p style="text-align:center;text-autospace:none;margin: 0;padding: 0;">
+	    <span style="font-size: 21px;font-family: 仿宋">&nbsp;</span>
+	</p>
+	<p style="text-align:center;text-autospace:none;margin: 0;padding: 0;">
+	    <span style="font-size: 21px;font-family: 仿宋">&nbsp;</span>
+	</p>
+	<p style="text-align:left;text-autospace:none;margin: 0;padding: 0;">
+	    <img {{QrCodeImage}} style="height: 120px;"/>
+	</p>
+	<p style="text-align:center;text-autospace:none;margin: 0;padding: 0;">
+	    <span style="font-size: 21px;font-family: 仿宋">&nbsp;</span>
+	</p>
+	<p style="text-align:center;text-autospace:none;margin: 0;padding: 0;">
+	    <span style="font-size: 21px;font-family: 仿宋">&nbsp;</span>
+	</p>
+	<p style="text-indent: 43px;margin: 0;padding: 0;">
+	    <span style="font-size: 21px;font-family: 仿宋">附件：<span>1</span>、<span>{{attachment1}}</span></span>
+	</p>
+	<p style="text-align:center;text-autospace:none;margin: 0;padding: 0;">
+	    <img {{AppendixOne}} style="width: 90%"/>
+	</p>
+	<p style="text-indent: 43px;margin: 0;padding: 0;">
+	    <span style="font-size: 21px;font-family: 仿宋">附件：<span>2</span>、<span>{{attachment2}}</span></span>
+	</p>
+	<p style="text-align:center;text-autospace:none;margin: 0;padding: 0;">
+	    <img {{AppendixTwo}} style="width: 90%"/>
+	</p>
+</body>
+</html>

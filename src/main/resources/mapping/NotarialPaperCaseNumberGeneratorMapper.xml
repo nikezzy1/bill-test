@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lingsi.unp.mapper.cases.NotarialPaperCaseNumberGeneratorMapper" >
+  <resultMap id="BaseResultMap" type="com.lingsi.unp.model.cases.NotarialPaperCaseNumberGenerator" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    id
+  </sql>
+
+  <select id="select" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from notarialpaper_casenumber_generator
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from notarialpaper_casenumber_generator
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lingsi.unp.model.cases.NotarialPaperCaseNumberGenerator" >
+    insert into notarialpaper_casenumber_generator (id)
+    values (#{id,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lingsi.unp.model.cases.NotarialPaperCaseNumberGenerator" >
+    insert into notarialpaper_casenumber_generator
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKey" >
+    update notarialpaper_casenumber_generator
+    set
+      id = #{id,jdbcType=BIGINT}+1
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

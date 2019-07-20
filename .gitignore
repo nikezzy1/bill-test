@@ -1,0 +1,44 @@
+# maven ignore
+target/
+
+# eclipse ignore
+.settings/
+.project
+.classpath
+
+# idea ignore
+.idea/
+.idea_modules/
+.ipr
+#.iml
+.iws
+
+# package ignore
+*.class
+*.jar
+*.war
+*.ear
+
+# temp ignore
+*.log
+*.log.*.gz
+*.cache
+*.diff
+*.patch
+*.tmp
+
+# system ignore
+.DS_Store
+Thumbs.db
+
+# project ignore
+**/tmp
+pom.xml.versionBackup
+
+# generated at runtime
+logs/
+nohup.out
+
+aladdin-config-repo/
+attachments/
+inventories/

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lingsi.unp.mapper.cases.NotarialPaperCaseNumberMapper" >
+  <resultMap id="BaseResultMap" type="com.lingsi.unp.model.cases.NotarialPaperCaseNumber" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="year" property="year" jdbcType="VARCHAR" />
+    <result column="caseId" property="caseId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, year, caseId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from notarialpaper_casenumber
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+
+  <select id="selectByCaseId" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from notarialpaper_casenumber
+    where caseId = #{caseId,jdbcType=BIGINT}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from notarialpaper_casenumber
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lingsi.unp.model.cases.NotarialPaperCaseNumber" >
+    insert into notarialpaper_casenumber (id, year, caseId
+      )
+    values (#{id,jdbcType=BIGINT}, #{year,jdbcType=VARCHAR}, #{caseId,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lingsi.unp.model.cases.NotarialPaperCaseNumber" >
+    insert into notarialpaper_casenumber
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="year != null" >
+        year,
+      </if>
+      <if test="caseId != null" >
+        caseId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="caseId != null" >
+        #{caseId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lingsi.unp.model.cases.NotarialPaperCaseNumber" >
+    update notarialpaper_casenumber
+    <set >
+      <if test="year != null" >
+        year = #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="caseId != null" >
+        caseId = #{caseId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lingsi.unp.model.cases.NotarialPaperCaseNumber" >
+    update notarialpaper_casenumber
+    set year = #{year,jdbcType=VARCHAR},
+      caseId = #{caseId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

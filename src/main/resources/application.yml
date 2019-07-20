@@ -1,0 +1,61 @@
+
+server:
+  port: 9911
+rootPath: D:\gitLab\unp\folder
+
+
+spring:
+  redis:
+    database: 0
+    host:
+      39.98.180.134
+    port: 6379
+    password: 123456
+  datasource:
+    druid:
+        url: jdbc:mysql://rm-8vb1a77wawpb9969kno.mysql.zhangbei.rds.aliyuncs.com:3306/unp
+        username: unp
+        password: Unp201904
+        # 使用druid数据源
+        driver-class-name: com.mysql.jdbc.Driver
+        filters:
+          commons-log.connection-logger-name: stat,wall,log4j
+        maxActive: 100
+        initialSize: 1
+        maxWait: 60000
+        minIdle: 1
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: false
+        maxOpenPreparedStatements: -1
+
+
+  servlet:
+    multipart:
+      max-file-size : 20MB
+      max-request-size : 100MB
+
+  security:
+    user:
+      name: suntao
+      password: 123456
+      roles: admin
+
+
+
+
+## 该配置节点为独立的节点，有很多同学容易将这个配置放在spring的节点下，导致配置无法被识别
+mybatis:
+ mapper-locations: classpath:mapping/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
+ type-aliases-package: com.lingsi.unp.model  # 注意：对应实体类的路径
+
+#pagehelper分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql

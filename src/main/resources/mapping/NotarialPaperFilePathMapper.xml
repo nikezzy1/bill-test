@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lingsi.unp.mapper.cases.NotarialPaperFilePathMapper" >
+  <resultMap id="BaseResultMap" type="com.lingsi.unp.model.cases.NotarialPaperFilePath" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="caseId" property="caseId" jdbcType="BIGINT" />
+    <result column="fileType" property="fileType" jdbcType="VARCHAR" />
+    <result column="fileName" property="fileName" jdbcType="VARCHAR" />
+    <result column="itemNo" property="itemNo" jdbcType="INTEGER" />
+    <result column="filePath" property="filePath" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, caseId, fileType, fileName, itemNo, filePath
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from notarialpaper_file_path
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+
+  <select id="selectByCaseId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from notarialpaper_file_path
+    where caseId = #{caseId,jdbcType=BIGINT}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from notarialpaper_file_path
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lingsi.unp.model.cases.NotarialPaperFilePath" >
+    insert into notarialpaper_file_path (id, caseId, fileType, 
+      fileName, itemNo, filePath
+      )
+    values (#{id,jdbcType=BIGINT}, #{caseId,jdbcType=BIGINT}, #{fileType,jdbcType=VARCHAR}, 
+      #{fileName,jdbcType=VARCHAR}, #{itemNo,jdbcType=INTEGER}, #{filePath,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lingsi.unp.model.cases.NotarialPaperFilePath" >
+    insert into notarialpaper_file_path
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="caseId != null" >
+        caseId,
+      </if>
+      <if test="fileType != null" >
+        fileType,
+      </if>
+      <if test="fileName != null" >
+        fileName,
+      </if>
+      <if test="itemNo != null" >
+        itemNo,
+      </if>
+      <if test="filePath != null" >
+        filePath,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="caseId != null" >
+        #{caseId,jdbcType=BIGINT},
+      </if>
+      <if test="fileType != null" >
+        #{fileType,jdbcType=VARCHAR},
+      </if>
+      <if test="fileName != null" >
+        #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="itemNo != null" >
+        #{itemNo,jdbcType=INTEGER},
+      </if>
+      <if test="filePath != null" >
+        #{filePath,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lingsi.unp.model.cases.NotarialPaperFilePath" >
+    update notarialpaper_file_path
+    <set >
+      <if test="caseId != null" >
+        caseId = #{caseId,jdbcType=BIGINT},
+      </if>
+      <if test="fileType != null" >
+        fileType = #{fileType,jdbcType=VARCHAR},
+      </if>
+      <if test="fileName != null" >
+        fileName = #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="itemNo != null" >
+        itemNo = #{itemNo,jdbcType=INTEGER},
+      </if>
+      <if test="filePath != null" >
+        filePath = #{filePath,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lingsi.unp.model.cases.NotarialPaperFilePath" >
+    update notarialpaper_file_path
+    set caseId = #{caseId,jdbcType=BIGINT},
+      fileType = #{fileType,jdbcType=VARCHAR},
+      fileName = #{fileName,jdbcType=VARCHAR},
+      itemNo = #{itemNo,jdbcType=INTEGER},
+      filePath = #{filePath,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <select id="selectBySelective" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from notarialpaper_file_path
+    <where>
+      1=1
+      <if test="caseId != null">
+        and caseId=#{caseId}
+      </if>
+    </where>
+  </select>
+  <select id="selectApOrderByItemNo" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from notarialpaper_file_path
+    <where>
+      1=1
+      <if test="caseId != null">
+        and caseId=#{caseId}
+      </if>
+      <if test="fileType != null">
+        and fileType=#{fileType}
+      </if>
+    </where>
+    order by fileName, itemNo
+  </select>
+</mapper>

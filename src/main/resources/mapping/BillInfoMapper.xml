@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+    <mapper namespace="com.lingsi.unp.mapper.bill.BillInfoMapper" >
+        <!--<resultMap id="BaseResultMap" type="com.lingsi.unp.model.bill.BillInfo" >-->
+            <!--<id column="id" property="id" jdbcType="INTEGER" />-->
+            <!--<result column="url" property="url" jdbcType="VARCHAR" />-->
+            <!--<result column="path" property="path" jdbcType="VARCHAR" />-->
+            <!--<result column="component" property="component" jdbcType="VARCHAR" />-->
+            <!--<result column="name" property="name" jdbcType="VARCHAR" />-->
+            <!--<result column="iconCls" property="iconcls" jdbcType="VARCHAR" />-->
+            <!--<result column="keepAlive" property="keepalive" jdbcType="BIT" />-->
+            <!--<result column="requireAuth" property="requireauth" jdbcType="BIT" />-->
+            <!--<result column="parentId" property="parentid" jdbcType="INTEGER" />-->
+            <!--<result column="enabled" property="enabled" jdbcType="BIT" />-->
+        <!--</resultMap>-->
+
+        <!--<resultMap id="AllMenuMap" type="com.lingsi.unp.model.auth.AppMenu" extends="BaseResultMap">-->
+            <!--<collection property="roles" ofType="com.lingsi.unp.model.auth.AppRole" select="com.lingsi.unp.mapper.auth.AppMenuMapper.getRolesByMenuId"-->
+                        <!--column="{mid=id}" ></collection>-->
+        <!--</resultMap>-->
+
+        <!--<sql id="Base_Column_List" >-->
+            <!--id, url, path, component, name, iconCls, keepAlive, requireAuth, parentId, enabled-->
+        <!--</sql>-->
+
+
+        <insert id="insert" parameterType="com.lingsi.unp.model.bill.BillInfo">
+			insert into bill_info(billNo,buyerLicenseNo,buyerName,sellerName,billAmt,billBalance,billDate,payDate,
+                                  orderStartDate,orderEndDate,billStatus,status,
+                                  contractStatusUpdate,scfBillStatusUpdate,inputTime,updateTime)
+			values(#{billNo},#{buyerLicenseNo},#{buyerName},#{sellerName},#{billAmt},#{billBalance},#{billDate},
+			#{payDate},#{orderStartDate},#{orderEndDate},#{billStatus},#{status},
+			#{contractStatusUpdate},#{scfBillStatusUpdate},#{inputTime},#{updateTime})
+		</insert>
+
+        <select id="selectByPrimaryKey" resultType="com.lingsi.unp.model.bill.BillInfo" parameterType="java.lang.String">
+        SELECT * FROM bill_info where billNo=#{billNo}
+        </select>
+
+        <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+            delete from bill_info where billNo=#{billNo}
+        </delete>
+
+
+
+        <update id="updateByPrimaryKey" parameterType="com.lingsi.unp.model.bill.BillInfo">
+            update bill_info
+            set buyerLicenseNo=#{buyerLicenseNo},buyerName=#{buyerName},sellerName=#{sellerName},billAmt=#{billAmt},billBalance=#{billBalance},billDate=#{billDate},payDate=#{payDate},orderStartDate=#{orderStartDate},orderEndDate=#{orderEndDate},billStatus=#{billStatus},status=#{status},contractStatusUpdate=#{contractStatusUpdate},scfBillStatusUpdate=#{scfBillStatusUpdate},inputTime=#{inputTime},updateTime=#{updateTime} where billNo=#{billNo}
+        </update>
+
+
+
+
+<!--
+    buyerLicenseNo,buyerName,sellerName,billAmt,billBalance,billDate,payDate,orderStartDate,
+    orderEndDate,billStatus,status,contractStatusUpdate,scfBillStatusUpdate,inputTime,updateTime
+    -->
+    </mapper>
